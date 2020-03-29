@@ -18,7 +18,7 @@ public class playerMovement : MonoBehaviour
     
     Vector3 velocity;
     bool isGrounded;
-    bool isSprinting;
+    bool isSprinting = false;
     
     void Update()
     {
@@ -48,6 +48,7 @@ public class playerMovement : MonoBehaviour
 
         // Character jump implementation
         if (Input.GetButtonDown("Jump") && isGrounded) {
+            print("jump pls");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityMultiplier * -9.81f);
         }
 
