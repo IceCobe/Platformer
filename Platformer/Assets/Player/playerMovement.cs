@@ -9,13 +9,16 @@ public class playerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
 
-    public float speed = 12f;
+    public float runSpeed = 12f;
+    private float curSpeed;
+    public float sprintMultiplier = 1.5f;
     public float gravityMultiplier = 2f;
     public float jumpHeight = 3f;
     public float groundDistance = 0.2f;
     
     Vector3 velocity;
     bool isGrounded;
+    bool isSprinting;
     
     void Update()
     {
@@ -30,9 +33,18 @@ public class playerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        // Checks if you're sprinting
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            isSprinting = true;
+            curSpeed = runSpeed * sprintMultiplier;
+        } else {
+            isSprinting = false;
+            curSpeed = runSpeed;
+        }
+
         // Moves the character
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * curSpeed * Time.deltaTime);
 
         // Character jump implementation
         if (Input.GetButtonDown("Jump") && isGrounded) {
