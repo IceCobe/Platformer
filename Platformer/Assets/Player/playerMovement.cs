@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public float speed = 12f;
-    public float gravity = -9.81f;
+    public float gravityMultiplier = 2f;
     public float jumpHeight = 3f;
     public float groundDistance = 0.2f;
     
@@ -36,11 +36,11 @@ public class playerMovement : MonoBehaviour
 
         // Character jump implementation
         if (Input.GetButtonDown("Jump") && isGrounded) {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityMultiplier * -9.81f);
         }
 
         // gravity moves you downwards
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravityMultiplier * -9.81f * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 }
