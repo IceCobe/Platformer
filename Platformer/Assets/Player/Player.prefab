@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 3758958602389781380}
   - component: {fileID: 3758958602389781382}
   - component: {fileID: 3758958602389781376}
-  - component: {fileID: 3758958602389781381}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,27 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3758958602389781381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3758958602389781499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382eff30a96ad5a43ad8a224ad78a8a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 3758958602389781382}
-  groundCheck: {fileID: 3758958601110571597}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
-  speed: 12
-  gravity: -19.62
-  jumpHeight: 3
-  groundDistance: 0.2
 --- !u!1 &3758958602476911525
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +107,6 @@ GameObject:
   - component: {fileID: 3758958602476911520}
   - component: {fileID: 3758958602476911527}
   - component: {fileID: 3758958602476911526}
-  - component: {fileID: 3758958602476911521}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -202,17 +179,3 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3758958602476911525}
   m_Enabled: 1
---- !u!114 &3758958602476911521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3758958602476911525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50f2429e6e541114d9a7526fde67408e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBody: {fileID: 3758958602389781380}
-  mouseSensitivity: 100
